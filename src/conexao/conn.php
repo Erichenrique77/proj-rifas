@@ -1,7 +1,7 @@
 <?php
 
-    $hostname = "ftpupload.net";
-    $dbname = "epiz_31642061_XXX"
+    $hostname = "sql202.epizy.com";
+    $dbname = "epiz_31642061_bancorifa"
     $username = "epiz_31642061";
     $password "iQMmweTl6RHk";
 
