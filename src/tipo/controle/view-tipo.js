@@ -25,8 +25,8 @@ $(document).ready(function(){
               } else{
                 Swal.fire({ //inicialização do SweetAlert
                     title: 'e-rifa', //titulo da janela sweetalert
-                    text: dados.mensagem, //mensagem retornada do microserviço
-                    type: dados.tipo, //tipo de retorno {success, info ou error}
+                    text: dado.mensagem, //mensagem retornada do microserviço
+                    type: dado.tipo, //tipo de retorno {success, info ou error}
                     confirmButtonText: 'OK'
                 })
               }

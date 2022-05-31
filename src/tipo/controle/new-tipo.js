@@ -17,4 +17,9 @@ $(document).ready(function(){
 
 
     })
+
+    $('.close, #close').click(function(e){
+        e.preventDefault()
+        $('#modal-tipo').modal('hide')
+    })
 })

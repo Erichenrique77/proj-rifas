@@ -10,7 +10,7 @@ $requestData = $_REQUEST;
 $colunas = $requestData['columns'];
 
 //preparar o comando sql para obter os dados da categoria
-$sql = "SELECT ID, NOME FROM TIPO WHERE 1=1";
+$sql = "SELECT ID, NOME FROM TIPO WHERE 1=1 ";
 
 //obter o total de registros cadastrados
 $resultado = $pdo->query($sql);
@@ -18,16 +18,16 @@ $qtdeLinhas = $resultado->rowCount();
 
 //verificando se há filtro determinado
 $filtro = $requestData['search']['value'];
-if(!empty($filtro)){
+if( !empty( $filtro ) ){
     //montar a expressão lógica que irá compor os filtros
     //aqui vc deverá determinar quais colunas farão parte do filtro
-    $sql .="AND (ID LIKE '$filtro%' ";
-    $sql .="OR NOME LIKE '$filtro%') ";
+    $sql .=" AND (ID LIKE '$filtro%' ";
+    $sql .=" OR NOME LIKE '$filtro%') ";
 }
 
 //obter o total dos dados filtrados
 $resultado = $pdo->query($sql);
-$qtdeLinhas = $resultado->rowCount();
+$totalFiltrados = $resultado->rowCount();
 
 //obtervalores para ORDER BY
 $colunaOrdem = $requestData['order'][0]['column']; //obtém a posição da coluna na ordenação
@@ -39,11 +39,11 @@ $inicio = $requestData['start']; //obtém o inicio do limite
 $tamanho = $requestData['length']; //obtem o tamanho do limite
 
 //realizar o ORDER BY com LIMIT
-$sql .= "ORDER BY $ordem $direcao LIMIT $inicio, $tamanho";
+$sql .= " ORDER BY $ordem $direcao LIMIT $inicio, $tamanho ";
 $resultado = $pdo->query($sql);
 $dados = array();
 while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-    $dados[] = array_map('utf8_encode', $row);
+    $dados[] = array_map(null, $row);
 }
 
 //montar o objeto json para retornar ao DataTable
@@ -51,7 +51,7 @@ $json_data = array(
     "draw" => intval($requestData['draw']),
     "recordsTotal" => intval($qtdeLinhas),
     "recordsFiltered" => intval($totalFiltrados),
-    "data" => $dados
+    "data" => $dados 
 );
 
 //retorna a objeto json para o Datatable
