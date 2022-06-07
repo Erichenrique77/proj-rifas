@@ -15,21 +15,23 @@ $(document).ready(function(){
             data: ID,
             url: 'src/tipo/modelo/view-tipo.php',
             success: function(dado) {
-              if (dado.tipo == "success"){
-                  $('.modal-body').load('src/tipo/visao/form-tipo.html', function(){
-                      $('#NOME').val(dado.dados.NOME)
-                      $('#NOME').attr('readonly', 'true')
-                  })
-                  $('.btn-save').hide()
-                  $('#modal-tipo').modal('show')
-              } else{
-                Swal.fire({ //inicialização do SweetAlert
-                    title: 'e-rifa', //titulo da janela sweetalert
-                    text: dado.mensagem, //mensagem retornada do microserviço
-                    type: dado.tipo, //tipo de retorno {success, info ou error}
-                    confirmButtonText: 'OK'
-                })
-              }
+                console.log(dado)
+                console.log(dado.tipo)
+            //   if (dado.tipo == "success"){
+            //       $('.modal-body').load('src/tipo/visao/form-tipo.html', function(){
+            //           $('#NOME').val(dado.dados.NOME)
+            //           $('#NOME').attr('readonly', 'true')
+            //       })
+            //       $('.btn-save').hide()
+            //       $('#modal-tipo').modal('show')
+            //   } else{
+            //     Swal.fire({ //inicialização do SweetAlert
+            //         title: 'e-rifa', //titulo da janela sweetalert
+            //         text: dado.mensagem, //mensagem retornada do microserviço
+            //         type: dado.tipo, //tipo de retorno {success, info ou error}
+            //         confirmButtonText: 'OK'
+            //     })
+            //   }
             }
         })
     })
