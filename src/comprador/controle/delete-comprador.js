@@ -21,7 +21,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/tipo/modelo/delete-tipo.php',
+                    url: 'src/comprador/modelo/delete-comprador.php',
                     success: function(dados) {
                         Swal.fire({
                             title: 'e-Rifa',

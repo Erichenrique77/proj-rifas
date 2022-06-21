@@ -3,7 +3,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/tipo/modelo/list-tipo.php",
+            "url": "src/comprador/modelo/list-comprador.php",
             "type": "POST"
         },
         "language": {

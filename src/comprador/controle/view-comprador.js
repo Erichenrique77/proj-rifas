@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-tipo').on('click', 'button.btn-edit', function(e) {
+    $('#table-tipo').on('click', 'button.btn-view', function(e) {
 
         e.preventDefault()
 
@@ -18,15 +18,14 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/tipo/modelo/view-tipo.php',
+            url: 'src/comprador/modelo/view-comprador.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/tipo/visao/form-tipo.html', function() {
+                    $('.modal-body').load('src/comprador/visao/form-comprador.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#ID').val(dado.dados.ID)
+                        $('#NOME').attr('readonly', 'true')
                     })
-                    $('.btn-save').show()
-                    $('.btn-save').removeAttr('data-operation')
+                    $('.btn-save').hide()
                     $('#modal-tipo').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert

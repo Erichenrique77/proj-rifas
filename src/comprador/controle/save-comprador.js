@@ -12,7 +12,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/tipo/modelo/save-tipo.php',
+            url: 'src/comprador/modelo/save-comprador.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'e-Rifa',
