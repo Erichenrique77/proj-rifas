@@ -19,6 +19,12 @@ if(empty($requestData['NOME'])){
             $stmt->execute(array(
                 ':a' => $requestData['NOME']
             ));
+
+            //$stmt = $pdo->prepare('INSERT INTO COMPRADOR (CELULAR) VALUES (:a)');
+            //$stmt->execute(array(
+                //':a' => $requestData['CELULAR']
+           // ));
+
             $dados = array(
                 "tipo" => 'success',
                 "mensagem" => 'Registro salvo com sucesso.'

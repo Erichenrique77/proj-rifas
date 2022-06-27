@@ -18,7 +18,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/tipo/modelo/view-tipo.php',
+            url: 'src/comprador/modelo/view-comprador.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/comprador/visao/form-comprador.html', function() {

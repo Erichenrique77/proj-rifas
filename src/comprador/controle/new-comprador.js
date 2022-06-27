@@ -5,7 +5,7 @@ $(document).ready(function() {
         $('.modal-title').empty()
         $('.modal-body').empty()
 
-        $('.modal-title').append('Adicionar novo tipo de acesso')
+        $('.modal-title').append('Adicionar novo Comprador')
 
         $('.modal-body').load('src/comprador/visao/form-comprador.html')
 
