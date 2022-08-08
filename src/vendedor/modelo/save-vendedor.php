@@ -15,10 +15,13 @@ if(empty($requestData['NOME'])){
 
     if($operacao == 'insert'){
         try{
-            $stmt = $pdo->prepare('INSERT INTO COMPRADOR (NOME, CELULAR) VALUES (:a, :b)');
+            $stmt = $pdo->prepare('INSERT INTO VENDEDOR (NOME, CELULAR, LOGIN, SENHA, TIPO_ID) VALUES (:a, :b, :c, :d, :e)');
             $stmt->execute(array(
                 ':a' => $requestData['NOME'],
-                ':b' => $requestData['CELULAR']
+                ':b' => $requestData['CELULAR'],
+                ':c' => $requestData['LOGIN'],
+                ':d' => md5($requestData['SENHA']),
+                ':e' => $requestData['TIPO_ID']
             ));
             $dados = array(
                 "tipo" => 'success',
@@ -32,11 +35,14 @@ if(empty($requestData['NOME'])){
         }
     } else {
         try{
-            $stmt = $pdo->prepare('UPDATE COMPRADOR SET NOME = :a, CELULAR = :b WHERE ID = :id');
+            $stmt = $pdo->prepare('UPDATE VENDEDOR SET NOME = :a, CELULAR = :b, LOGIN = :c, SENHA = :d, TIPO_ID = :e WHERE ID = :id');
             $stmt->execute(array(
                 ':id' => $ID,
                 ':a' => $requestData['NOME'],
-                ':b' => $requestData['CELULAR']
+                ':b' => $requestData['CELULAR'],
+                ':c' => $requestData['LOGIN'],
+                ':d' => md5($requestData['SENHA']),
+                ':e' => $requestData['TIPO_ID']
             ));
             $dados = array(
                 "tipo" => 'success',

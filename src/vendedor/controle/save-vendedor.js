@@ -3,7 +3,7 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-comprador').serialize()
+        let dados = $('#form-vendedor').serialize()
 
         dados += `&operacao=${$('.btn-save').attr('data-operation')}`
 
@@ -12,7 +12,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/comprador/modelo/save-comprador.php',
+            url: 'src/vendedor/modelo/save-vendedor.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'e-Rifa',
@@ -21,8 +21,8 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
 
-                $('#modal-comprador').modal('hide')
-                $('#table-comprador').DataTable().ajax.reload()
+                $('#modal-vendedor').modal('hide')
+                $('#table-vendedor').DataTable().ajax.reload()
             }
         })
     })
